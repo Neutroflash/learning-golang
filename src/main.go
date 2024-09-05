@@ -6,6 +6,28 @@ import (
 )
 
 func main() {
+	//Declaración de variables
+	helloMessage := "Hello"
+	worldMessage := "World"
+
+	//Println
+	fmt.Println(helloMessage, worldMessage)
+	
+	//Printf
+	nombre := "Platzi"
+	cursos := 500
+
+	fmt.Printf("%s tiene mas de %d cursos\n ", nombre, cursos)
+	fmt.Printf("%v tiene mas de %v cursos\n ", nombre, cursos)
+
+	//Sprintf
+	message := fmt.Sprintf("%s tiene mas de %d cursos", nombre, cursos)
+	fmt.Println(message)
+
+	//Tipo Datos
+	fmt.Printf("helloMessage: %T\n", helloMessage)
+	fmt.Printf("cursos: %T\n", cursos)
+
 	//Declaración de constantes
 	const pi float64 = 3.14
 	const pi2 = 3.1415
@@ -32,4 +54,43 @@ func main() {
 	const baseCuadrado = 10
 	areaCuadrado := math.Pow(baseCuadrado, 2)
 	fmt.Println(areaCuadrado)
+
+	x := 10
+	y := 50
+	var radio float64 = 3
+
+	//Suma
+	result := x + y
+	fmt.Println("Suma: ", result)
+
+	//Resta
+	result = y - x
+	fmt.Println("Resta: ", result)
+
+	//Multiplicación
+	result = x * y
+	fmt.Println("Multiplicación: ", result)
+
+	//División
+	result = y / x
+	fmt.Println("División: ", result)
+
+	//Modulo
+	result = y % x
+	fmt.Println("Modulo: ", result)
+
+	//Incremental
+	x++
+	fmt.Println("Incremental: ", x)
+
+	//Decremental
+	x--
+	fmt.Println("Decremental: ", x)
+
+	//Retos
+	areaRectangulo := x * y
+	areaTrapecio := (x + y) * altura / 2
+	areaCirculo :=  pi * math.Pow((radio), 2)
+
+	fmt.Println(areaRectangulo, areaTrapecio, areaCirculo)
 }
