@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math"
+	"strconv"
 )
 
 func normalFunction(message string) {
@@ -141,4 +143,42 @@ func main() {
 		counterForever++
 	}
 	*/
+	
+	for i := 10; i >= 0; i-- {
+		fmt.Println(i)
+	}
+
+	counter2 := 10
+	for counter2 >= 0 {
+		fmt.Println(counter2)
+		counter2--
+	}
+
+	valor1 := 1
+	valor2 := 2
+
+	if valor1 == 1 {
+		fmt.Println("Es 1")
+	} else {
+		fmt.Println("No es 1")
+	}
+
+	//and
+	if valor1 == 1 && valor2 == 2 {
+		fmt.Println("Es verdad")
+	}
+
+	//or
+	if valor1 == 0 || valor2 == 2 {
+		fmt.Println("Claro que si")
+	} else {
+		fmt.Println("Soluciona el problema")
+	}
+
+	//Convertir texto a numero
+	value, err := strconv.Atoi("5sada")
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println("value:" ,value)
 }
