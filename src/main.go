@@ -51,7 +51,20 @@ func isPalindromo(text string) {
 	}
 }
 
+type car struct {
+	brand string
+	year int
+}
+
 func main() {
+	myCar := car{brand: "Ford", year: 2020}
+	fmt.Println(myCar)
+
+	//Otra Manera
+	var otherCar car
+	otherCar.brand = "Ferrari"
+	fmt.Println(otherCar)
+
 	isLogin("Miguel", "loli196d4")
 	isPar(2223)
 	tripleArgument(1, 2, "Hola")
@@ -295,4 +308,20 @@ func main() {
 	//ama
 	//amor a roma
 	isPalindromo("Amor a Roma")
+
+	m := make(map[string]int)
+
+	m["Jose"] = 14
+	m["Pepito"] = 20
+
+	fmt.Println(m)
+
+	//Recorrer map
+	for i, v := range m {
+		fmt.Println(i, v)
+	}
+
+	//Encontrar un valor
+	val, ok := m["Jose"]
+	fmt.Println(val, ok)
 }
