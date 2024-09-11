@@ -2,16 +2,14 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"math"
-	"strconv"
 )
 
 func normalFunction(message string) {
 	fmt.Println(message)
 }
 
-func tripleArgument(a,b int, c string) {
+func tripleArgument(a, b int, c string) {
 	fmt.Println(a, b, c)
 }
 
@@ -20,24 +18,24 @@ func returnValue(a int) int {
 }
 
 func doubleReturn(a int) (c, d int) {
-	return a, a*2
+	return a, a * 2
 }
 
 func isPar(a int) {
-	if ( a % 2 == 0) {
+	if a%2 == 0 {
 		fmt.Println("Es par")
 	} else {
 		fmt.Println("Es impar")
 	}
 }
 
-func isLogin(user,password string) {
-	if (user == "Miguel" && password == "loli1964")  {
+func isLogin(user, password string) {
+	if user == "Miguel" && password == "loli1964" {
 		fmt.Println("True")
 	} else {
 		fmt.Println("False")
 	}
-} 
+}
 
 func main() {
 	isLogin("Miguel", "loli196d4")
@@ -59,7 +57,7 @@ func main() {
 
 	//Println
 	fmt.Println(helloMessage, worldMessage)
-	
+
 	//Printf
 	nombre := "Platzi"
 	cursos := 500
@@ -85,17 +83,17 @@ func main() {
 	//Declaración de variables enteras
 	base := 12
 	var altura int = 14
-	var area int 
+	var area int
 
 	fmt.Println(base, altura, area)
 
 	//Zero Values
-	var a int 
+	var a int
 	var b float64
 	var c string
 	var d bool
 
-	fmt.Println(a,b,c,d)
+	fmt.Println(a, b, c, d)
 
 	//Area Cuadrado
 	const baseCuadrado = 10
@@ -137,7 +135,7 @@ func main() {
 	//Retos
 	areaRectangulo := x * y
 	areaTrapecio := (x + y) * altura / 2
-	areaCirculo :=  pi * math.Pow((radio), 2)
+	areaCirculo := pi * math.Pow((radio), 2)
 
 	fmt.Println(areaRectangulo, areaTrapecio, areaCirculo)
 
@@ -155,13 +153,13 @@ func main() {
 
 	//For forever
 	/*
-	counterForever := 0
-	for {
-		fmt.Println(counterForever)
-		counterForever++
-	}
+		counterForever := 0
+		for {
+			fmt.Println(counterForever)
+			counterForever++
+		}
 	*/
-	
+
 	for i := 10; i >= 0; i-- {
 		fmt.Println(i)
 	}
@@ -194,9 +192,59 @@ func main() {
 	}
 
 	//Convertir texto a numero
-	value, err := strconv.Atoi("5sada")
-	if err != nil {
-		log.Fatal(err)
+	/*
+		value, err := strconv.Atoi("5sada")
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println("value:" ,value)
+	*/
+
+	/*
+		modulo := 4 % 2
+		switch modulo {
+		case 0:
+			fmt.Println("Es Par")
+		default:
+			fmt.Println("Es Impar")
+		}
+	*/
+
+	switch modulo := 4 % 2; modulo {
+	case 0:
+		fmt.Println("Es Par")
+	default:
+		fmt.Println("Es Impar")
 	}
-	fmt.Println("value:" ,value)
+
+	//Sin Condición
+	valuew := 50
+	switch {
+	case valuew > 100:
+		fmt.Println("Es Mayor a 100")
+	case valuew < 0:
+		fmt.Println("Es menor a 0")
+	default:
+		fmt.Println("No Condición")
+	}
+
+	//Defer
+	defer fmt.Println("Hola")
+	fmt.Println("Mundo")
+
+	//Continue-Break
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+		//Continue
+		if i == 2 {
+			fmt.Println("Es 2")
+			continue
+		}
+
+		//Break
+		if i == 8 {
+			fmt.Println("Break")
+			break
+		}
+	}
 }
