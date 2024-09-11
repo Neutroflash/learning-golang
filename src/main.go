@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"math"
+	"strings"
 )
 
 func normalFunction(message string) {
@@ -34,6 +35,19 @@ func isLogin(user, password string) {
 		fmt.Println("True")
 	} else {
 		fmt.Println("False")
+	}
+}
+
+func isPalindromo(text string) {
+	var textReverse string
+	for i := len(text) - 1; i >= 0; i-- {
+		textReverse += string(text[i])
+	}
+
+	if strings.ToLower(text) == strings.ToLower(textReverse) {
+		fmt.Println("Es Palindromo")
+	} else {
+		fmt.Println("No es Palindormo")
 	}
 }
 
@@ -272,4 +286,13 @@ func main() {
 	newSLice := []int{8,9,10}
 	slice = append(slice, newSLice...)
 	fmt.Println(slice)
+
+	slice2 := []string{"hola", "que", "hace"}
+	for i := range slice2 {
+		fmt.Println(i)
+	}
+
+	//ama
+	//amor a roma
+	isPalindromo("Amor a Roma")
 }
