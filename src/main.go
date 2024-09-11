@@ -23,7 +23,25 @@ func doubleReturn(a int) (c, d int) {
 	return a, a*2
 }
 
+func isPar(a int) {
+	if ( a % 2 == 0) {
+		fmt.Println("Es par")
+	} else {
+		fmt.Println("Es impar")
+	}
+}
+
+func isLogin(user,password string) {
+	if (user == "Miguel" && password == "loli1964")  {
+		fmt.Println("True")
+	} else {
+		fmt.Println("False")
+	}
+} 
+
 func main() {
+	isLogin("Miguel", "loli196d4")
+	isPar(2223)
 	tripleArgument(1, 2, "Hola")
 	normalFunction("Aprendiendo Golang!")
 	value := returnValue(2)
