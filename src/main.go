@@ -1,6 +1,7 @@
 package main
 
 import (
+	pk "curso_golang_platzi/src/mypackage"
 	"fmt"
 	"math"
 	"strings"
@@ -53,10 +54,17 @@ func isPalindromo(text string) {
 
 type car struct {
 	brand string
-	year int
+	year  int
 }
 
 func main() {
+	var myCar2 pk.CarPublic
+	myCar2.Brand = "Ferrari"
+	myCar2.Year = 2020
+	fmt.Println(myCar2)
+
+	pk.PrintMessage("Hola Platzi")
+
 	myCar := car{brand: "Ford", year: 2020}
 	fmt.Println(myCar)
 
@@ -276,13 +284,13 @@ func main() {
 	}
 
 	//Array
-	var array [4]int 
+	var array [4]int
 	array[0] = 1
 	array[1] = 2
 	fmt.Println(array, len(array), cap(array))
 
 	//Slices
-	slice := []int{0,1,2,3,4,5,6}
+	slice := []int{0, 1, 2, 3, 4, 5, 6}
 	fmt.Println(slice, len(slice), cap(slice))
 
 	//Métodos en Slice
@@ -296,7 +304,7 @@ func main() {
 	fmt.Println(slice)
 
 	//Append nueva list
-	newSLice := []int{8,9,10}
+	newSLice := []int{8, 9, 10}
 	slice = append(slice, newSLice...)
 	fmt.Println(slice)
 
