@@ -2,6 +2,7 @@ package main
 
 import (
 	pk "curso_golang_platzi/src/mypackage"
+	pk2 "curso_golang_platzi/src/otherpackage"
 	"fmt"
 	"math"
 	"strings"
@@ -57,7 +58,31 @@ type car struct {
 	year  int
 }
 
+type pc struct {
+	ram   int
+	disk  int
+	brand string
+}
+
+func (myPc pc) ping() {
+	fmt.Println(myPc.brand, "Pong")
+}
+
+func (myPc *pc) duplicateRam() {
+	myPc.ram = myPc.ram * 2
+}
+
 func main() {
+	var myAnimal pk2.Animal
+	myAnimal.Name = "Fido"
+	myAnimal.Year = 2
+	myAnimal.Food = "Ricocan"
+	myAnimal.Type = "Perro"
+	fmt.Println(myAnimal)
+
+	myAnimal.DuplicateYear()
+	fmt.Println(myAnimal.Year)
+
 	var myCar2 pk.CarPublic
 	myCar2.Brand = "Ferrari"
 	myCar2.Year = 2020
@@ -67,6 +92,7 @@ func main() {
 
 	myCar := car{brand: "Ford", year: 2020}
 	fmt.Println(myCar)
+
 
 	//Otra Manera
 	var otherCar car
@@ -332,4 +358,25 @@ func main() {
 	//Encontrar un valor
 	val, ok := m["Jose"]
 	fmt.Println(val, ok)
+
+	//Punteros
+	val1 := 50
+	val2 := &val1
+
+	fmt.Println(val2)
+	fmt.Println(*val2)
+
+	*val2 = 100
+	fmt.Println(val1)
+
+	myPc := pc{ram: 16, disk: 200, brand: "MSI"}
+	fmt.Println(myPc)
+
+	myPc.ping()
+
+	fmt.Println(myPc)
+	myPc.duplicateRam()
+	fmt.Println(myPc)
+	myPc.duplicateRam()
+	fmt.Println(myPc)
 }
