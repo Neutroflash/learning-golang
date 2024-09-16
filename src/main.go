@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"math"
 	"strings"
+	"sync"
+	"time"
 )
 
 func normalFunction(message string) {
@@ -64,6 +66,31 @@ type pc struct {
 	brand string
 }
 
+type cuadrado struct {
+	base float64
+}
+
+type rectangulo struct {
+	base   float64
+	altura float64
+}
+
+type figuras2D interface {
+	area() float64
+}
+
+func (c cuadrado) area() float64 {
+	return c.base * c.base
+}
+
+func (r rectangulo) area() float64 {
+	return r.base * r.altura
+}
+
+func calcular(f figuras2D) {
+	fmt.Println("Area: ", f.area())
+}
+
 func (myPc pc) ping() {
 	fmt.Println(myPc.brand, "Pong")
 }
@@ -72,7 +99,40 @@ func (myPc *pc) duplicateRam() {
 	myPc.ram = myPc.ram * 2
 }
 
+/*
+func (myPc pc) String() string {
+	return fmt.Sprintf("Tengo %d GB RAM, %d GB DISCO y es una %s", myPc.ram, myPc.disk, myPc.String())
+}
+*/
+
+func say(text string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fmt.Println(text)
+}
+
 func main() {
+	var wg sync.WaitGroup
+
+	fmt.Println("Hello")
+	wg.Add(1)
+	go say("World", &wg)
+	wg.Wait()
+
+	go func (text string)  {
+		fmt.Println(text)	
+	}("Adios")
+	time.Sleep(time.Second * 1)
+
+	myCuadrado := cuadrado{base: 2}
+	myRectangulo := rectangulo{base: 2, altura: 4}
+
+	calcular(myCuadrado)
+	calcular(myRectangulo)
+
+	//Lista interfaces
+	myInterface := []interface{}{"Hola", 12, 4.90}
+	fmt.Println(myInterface...)
+
 	var myAnimal pk2.Animal
 	myAnimal.Name = "Fido"
 	myAnimal.Year = 2
@@ -92,7 +152,6 @@ func main() {
 
 	myCar := car{brand: "Ford", year: 2020}
 	fmt.Println(myCar)
-
 
 	//Otra Manera
 	var otherCar car
