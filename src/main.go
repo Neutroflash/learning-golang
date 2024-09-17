@@ -149,7 +149,7 @@ func main() {
 	}
 
 	canal := make(chan string, 1)
-	fmt.Println("Hello")
+	fmt.Println("Test Email")
 
 	go say2("Bye", canal)
 	fmt.Println(<-canal)
